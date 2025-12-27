@@ -1,8 +1,8 @@
-
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    alias(libs.plugins.devtools.ksp)
+    id("com.google.devtools.ksp") version "2.0.21-1.0.27"
+
 }
 
 android {
@@ -41,21 +41,17 @@ android {
 }
 
 dependencies {
-
-    implementation(libs.core.ktx)
-    implementation(libs.appcompat)
     implementation(libs.material)
-    implementation(libs.constraintlayout)
     testImplementation(libs.junit)
-    androidTestImplementation(libs.espresso.core)
-    implementation(libs.junit.v115)
     implementation(libs.recyclerview)
+    implementation(libs.recyclerview.selection)
     implementation(libs.glide)
     implementation(libs.retrofit)
-    implementation(libs.retrofit.converter.gson)
+    implementation(libs.converter.gson)
     implementation(libs.lifecycle.viewmodel.ktx)
     implementation(libs.lifecycle.runtime.ktx)
     implementation(libs.dagger)
     ksp(libs.dagger.compiler)
     implementation(libs.browser)
+
 }
