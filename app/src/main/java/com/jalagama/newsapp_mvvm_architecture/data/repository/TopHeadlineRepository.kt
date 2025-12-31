@@ -15,6 +15,7 @@ class TopHeadlineRepository @Inject constructor(private val networkService: Netw
     fun getTopHeadlines(country: String): Flow<List<Article>> {
         return flow {
             emit(networkService.getTopHeadlines(country))
+
         }.map { it.articles }
 
     }

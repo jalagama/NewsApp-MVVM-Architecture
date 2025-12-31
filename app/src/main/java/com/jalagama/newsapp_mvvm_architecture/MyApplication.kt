@@ -1,14 +1,24 @@
 package com.jalagama.newsapp_mvvm_architecture
 
 import android.app.Application
+import com.jalagama.newsapp_mvvm_architecture.di.component.ApplicationComponent
+import com.jalagama.newsapp_mvvm_architecture.di.component.DaggerApplicationComponent
+import com.jalagama.newsapp_mvvm_architecture.di.module.ApplicationModule
 
 class MyApplication : Application() {
 
+    lateinit var applicationComponent: ApplicationComponent
+
     override fun onCreate() {
             super.onCreate()
+        injectDependencies()
     }
 
-    companion object {
-       const val TAG = "MyApplication"
+    private fun injectDependencies() {
+        applicationComponent = DaggerApplicationComponent
+            .builder()
+            .applicationModule(ApplicationModule(this))
+            .build()
+        applicationComponent.inject(this)
     }
 }
