@@ -42,6 +42,9 @@ android {
 
 dependencies {
     implementation(libs.material)
+    implementation(libs.appcompat)
+    implementation(libs.activity)
+    implementation(libs.constraintlayout)
     testImplementation(libs.junit)
     implementation(libs.recyclerview)
     implementation(libs.recyclerview.selection)

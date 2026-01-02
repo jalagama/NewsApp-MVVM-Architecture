@@ -10,6 +10,9 @@ junit = "4.13.2"
 recyclerview = "1.4.0"
 recyclerviewSelection = "1.2.0"
 retrofit = "3.0.0"
+appcompat = "1.7.1"
+activity = "1.12.2"
+constraintlayout = "2.2.1"
 
 [libraries]
 browser = { module = "androidx.browser:browser", version.ref = "browser" }
@@ -24,6 +27,9 @@ junit = { module = "junit:junit", version.ref = "junit" }
 recyclerview = { module = "androidx.recyclerview:recyclerview", version.ref = "recyclerview" }
 recyclerview-selection = { module = "androidx.recyclerview:recyclerview-selection", version.ref = "recyclerviewSelection" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
+constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
