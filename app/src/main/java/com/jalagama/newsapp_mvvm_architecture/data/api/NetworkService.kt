@@ -1,5 +1,6 @@
 package com.jalagama.newsapp_mvvm_architecture.data.api
 
+import com.jalagama.newsapp_mvvm_architecture.data.model.NewsSourceResponse
 import com.jalagama.newsapp_mvvm_architecture.data.model.TopHeadlinesResponse
 import com.jalagama.newsapp_mvvm_architecture.utils.AppConstants.API_KEY
 import retrofit2.http.GET
@@ -11,4 +12,8 @@ interface NetworkService {
     @Headers("X-Api-Key: $API_KEY", "User-Agent: ABC")
     @GET("top-headlines")
     suspend fun getTopHeadlines(@Query("country") country: String): TopHeadlinesResponse
+
+    @Headers("X-Api-Key: $API_KEY")
+    @GET("sources")
+    suspend fun getNewsSources(): NewsSourceResponse
 }

@@ -18,7 +18,7 @@ class TopHeadlineViewModel(private val topHeadlineRepository: TopHeadlineReposit
     val uiState: StateFlow<UiState<List<Article>>> = _uiState
 
     init {
-        Log.d("mj","fetchTopHeadlines")
+        Log.d(TAG,"fetchTopHeadlines")
         fetchTopHeadlines()
     }
 
@@ -29,5 +29,9 @@ class TopHeadlineViewModel(private val topHeadlineRepository: TopHeadlineReposit
                .collect { _uiState.value = UiState.Success(it) }
 
        }
+    }
+
+    companion object {
+        private const val TAG = "TopHeadlineViewModel"
     }
 }

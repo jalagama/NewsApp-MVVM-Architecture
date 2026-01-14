@@ -1,8 +1,7 @@
-package com.jalagama.newsapp_mvvm_architecture.ui.topheadline
+package com.jalagama.newsapp_mvvm_architecture.ui.NewsSource
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -12,90 +11,85 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.jalagama.newsapp_mvvm_architecture.MyApplication
-import com.jalagama.newsapp_mvvm_architecture.data.model.Article
-import com.jalagama.newsapp_mvvm_architecture.databinding.ActivityTopHeadlineBinding
+import com.jalagama.newsapp_mvvm_architecture.databinding.ActivityNewsSourceBinding
 import com.jalagama.newsapp_mvvm_architecture.di.component.DaggerActivityComponent
 import com.jalagama.newsapp_mvvm_architecture.di.module.ActivityModule
 import com.jalagama.newsapp_mvvm_architecture.ui.base.UiState
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class TopHeadlineActivity : AppCompatActivity() {
+class NewsSourceActivity : AppCompatActivity() {
 
+
+    private lateinit var binding: ActivityNewsSourceBinding
 
     @Inject
-    lateinit var topHeadlineViewModel: TopHeadlineViewModel
+    lateinit var newsSourceViewModel: NewsSourceViewModel
 
     @Inject
-    lateinit var adapter: TopHeadlineAdapter
-
-    private lateinit var binding: ActivityTopHeadlineBinding
+    lateinit var adapter: NewsSourceAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        Log.d(TAG, "onCreate called")
         injectDependencies()
         super.onCreate(savedInstanceState)
-        binding = ActivityTopHeadlineBinding.inflate(layoutInflater)
+        binding = ActivityNewsSourceBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setupUI()
         setupObserver()
     }
 
     private fun setupUI() {
-        val recyclerView = binding.recyclerView
+        val recyclerView = binding.recyclerViewNewsSource
         recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.addItemDecoration(
-            DividerItemDecoration(
-                recyclerView.context,
-                (recyclerView.layoutManager as LinearLayoutManager).orientation
-            )
-        )
         recyclerView.adapter = adapter
     }
 
     private fun setupObserver() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
-                topHeadlineViewModel.uiState.collect {
+
+                newsSourceViewModel.uiState.collect {
                     when (it) {
+
                         is UiState.Success -> {
                             binding.progressBar.visibility = View.GONE
-                            renderList(it.data)
-                            binding.recyclerView.visibility = View.VISIBLE
+                            adapter.addData(it.data)
+                            binding.recyclerViewNewsSource.visibility = View.VISIBLE
+                            adapter.notifyDataSetChanged()
                         }
 
                         is UiState.Loading -> {
                             binding.progressBar.visibility = View.VISIBLE
-                            binding.recyclerView.visibility = View.GONE
+                            binding.recyclerViewNewsSource.visibility = View.GONE
+
                         }
 
                         is UiState.Error -> {
                             binding.progressBar.visibility = View.GONE
-                            Toast.makeText(this@TopHeadlineActivity, it.message, Toast.LENGTH_LONG)
+                            Toast.makeText(this@NewsSourceActivity, it.message, Toast.LENGTH_LONG)
                                 .show()
                         }
+
                     }
                 }
+
             }
+
         }
+
     }
 
-    private fun renderList(articleList: List<Article>) {
-        adapter.addData(articleList)
-        adapter.notifyDataSetChanged()
-    }
 
-    private fun injectDependencies() {
+    fun injectDependencies() {
         DaggerActivityComponent.builder()
             .applicationComponent((application as MyApplication).applicationComponent)
-            .activityModule(ActivityModule(this)).build().inject(this)
+            .activityModule(ActivityModule(this))
+            .build()
+            .inject(this)
     }
 
     companion object {
-
-        private const val TAG = "TopHeadlineActivity"
-
         fun newIntent(activity: AppCompatActivity) =
-            Intent(activity, TopHeadlineActivity::class.java)
+            Intent(activity, NewsSourceActivity::class.java)
     }
 }
