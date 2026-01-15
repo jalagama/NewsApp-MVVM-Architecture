@@ -82,19 +82,30 @@ class NewsListActivity : AppCompatActivity() {
                     when (it) {
                         is UiState.Success -> {
                             binding.progressBar.visibility = View.GONE
+                            binding.tvNoResults.visibility = View.GONE
                             binding.recyclerView.visibility = View.VISIBLE
-                            adapter.addData(it.data)
-                            adapter.notifyDataSetChanged()
+
+                            if (it.data.isEmpty()) {
+                                binding.tvNoResults.visibility = View.VISIBLE
+                                binding.recyclerView.visibility = View.GONE
+                            } else {
+                                adapter.addData(it.data)
+                                adapter.notifyDataSetChanged()
+                            }
+
+
                         }
 
                         is UiState.Loading -> {
                             binding.progressBar.visibility = View.VISIBLE
                             binding.recyclerView.visibility = View.GONE
+                            binding.tvNoResults.visibility = View.GONE
                         }
 
                         is UiState.Error -> {
                             binding.progressBar.visibility = View.GONE
                             binding.recyclerView.visibility = View.GONE
+                            binding.tvNoResults.visibility = View.GONE
                             Toast.makeText(this@NewsListActivity, it.message, Toast.LENGTH_LONG)
                                 .show()
                         }

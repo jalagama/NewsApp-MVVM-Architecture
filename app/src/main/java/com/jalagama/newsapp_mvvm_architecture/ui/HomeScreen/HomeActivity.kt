@@ -7,6 +7,7 @@ import com.jalagama.newsapp_mvvm_architecture.MyApplication
 import com.jalagama.newsapp_mvvm_architecture.databinding.ActivityHomeBinding
 import com.jalagama.newsapp_mvvm_architecture.di.component.DaggerActivityComponent
 import com.jalagama.newsapp_mvvm_architecture.di.module.ActivityModule
+import com.jalagama.newsapp_mvvm_architecture.ui.Countries.CountriesActivity
 import com.jalagama.newsapp_mvvm_architecture.ui.NewsSource.NewsSourceActivity
 import com.jalagama.newsapp_mvvm_architecture.ui.topheadline.TopHeadlineActivity
 
@@ -31,7 +32,7 @@ class HomeActivity : AppCompatActivity() {
         }
 
         homeBinding.countriesButton.setOnClickListener {
-            // Future Implementation
+            startActivity(CountriesActivity.newIntent(this))
         }
 
         homeBinding.languagesButton.setOnClickListener {

@@ -6,4 +6,5 @@
     <string name="languages">Languages</string>
     <string name="search">Search</string>
     <string name="news_sources">News Sources</string>
+    <string name="no_results_found">No results found!</string>
 </resources>
