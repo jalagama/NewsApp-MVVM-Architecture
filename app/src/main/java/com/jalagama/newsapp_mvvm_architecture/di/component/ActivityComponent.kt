@@ -4,6 +4,7 @@ import com.jalagama.newsapp_mvvm_architecture.di.ActivityScope
 import com.jalagama.newsapp_mvvm_architecture.di.module.ActivityModule
 import com.jalagama.newsapp_mvvm_architecture.ui.Countries.CountriesActivity
 import com.jalagama.newsapp_mvvm_architecture.ui.HomeScreen.HomeActivity
+import com.jalagama.newsapp_mvvm_architecture.ui.Languages.LanguageActivity
 import com.jalagama.newsapp_mvvm_architecture.ui.NewsList.NewsListActivity
 import com.jalagama.newsapp_mvvm_architecture.ui.NewsSource.NewsSourceActivity
 import com.jalagama.newsapp_mvvm_architecture.ui.topheadline.TopHeadlineActivity
@@ -22,4 +23,6 @@ interface ActivityComponent {
     fun inject(activity: NewsListActivity)
 
     fun inject(activity: CountriesActivity)
+
+    fun inject(activity: LanguageActivity)
 }
