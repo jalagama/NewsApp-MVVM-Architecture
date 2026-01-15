@@ -2,11 +2,11 @@ package com.jalagama.newsapp_mvvm_architecture.ui.NewsSource
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.browser.customtabs.CustomTabsIntent
-import androidx.core.net.toUri
 import androidx.recyclerview.widget.RecyclerView
 import com.jalagama.newsapp_mvvm_architecture.data.model.Sources
 import com.jalagama.newsapp_mvvm_architecture.databinding.NewsSourceItemLayoutBinding
+import com.jalagama.newsapp_mvvm_architecture.ui.NewsList.NewsListActivity
+import com.jalagama.newsapp_mvvm_architecture.ui.NewsList.NewsType
 
 class NewsSourceAdapter(private val newsSourceList: ArrayList<Sources>) :
     RecyclerView.Adapter<NewsSourceAdapter.DataViewHolder>() {
@@ -18,9 +18,8 @@ class NewsSourceAdapter(private val newsSourceList: ArrayList<Sources>) :
         fun bind(sources: Sources) {
             binding.souceItem.text = sources.name
             binding.souceItem.setOnClickListener {
-                val builder = CustomTabsIntent.Builder()
-                val customTabsIntent = builder.build()
-                customTabsIntent.launchUrl(it.context, sources.url.toUri())
+                val context = binding.root.context
+                context.startActivity(NewsListActivity.newIntent(context, sources.id, NewsType.NEWS_SOURCE.name))
             }
         }
     }
@@ -32,6 +31,7 @@ class NewsSourceAdapter(private val newsSourceList: ArrayList<Sources>) :
             false
         )
     )
+
 
     override fun onBindViewHolder(holder: DataViewHolder, position: Int) {
         holder.bind(newsSourceList[position])

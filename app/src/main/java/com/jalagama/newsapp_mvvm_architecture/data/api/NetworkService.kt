@@ -11,7 +11,17 @@ interface NetworkService {
 
     @Headers("X-Api-Key: $API_KEY", "User-Agent: ABC")
     @GET("top-headlines")
-    suspend fun getTopHeadlines(@Query("country") country: String): TopHeadlinesResponse
+    suspend fun getTopHeadlinesByCountry(@Query("country") country: String): TopHeadlinesResponse
+
+
+    @Headers("X-Api-Key: $API_KEY")
+    @GET("top-headlines")
+    suspend fun getTopHeadlinesBySource(@Query("sources") country: String): TopHeadlinesResponse
+
+
+    @Headers("X-Api-Key: $API_KEY")
+    @GET("top-headlines")
+    suspend fun getTopHeadlinesByLanguage(@Query("language") country: String): TopHeadlinesResponse
 
     @Headers("X-Api-Key: $API_KEY")
     @GET("sources")

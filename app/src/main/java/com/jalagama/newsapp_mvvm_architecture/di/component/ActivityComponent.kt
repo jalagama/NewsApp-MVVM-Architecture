@@ -3,6 +3,7 @@ package com.jalagama.newsapp_mvvm_architecture.di.component
 import com.jalagama.newsapp_mvvm_architecture.di.ActivityScope
 import com.jalagama.newsapp_mvvm_architecture.di.module.ActivityModule
 import com.jalagama.newsapp_mvvm_architecture.ui.HomeScreen.HomeActivity
+import com.jalagama.newsapp_mvvm_architecture.ui.NewsList.NewsListActivity
 import com.jalagama.newsapp_mvvm_architecture.ui.NewsSource.NewsSourceActivity
 import com.jalagama.newsapp_mvvm_architecture.ui.topheadline.TopHeadlineActivity
 import dagger.Component
@@ -16,4 +17,6 @@ interface ActivityComponent {
     fun inject(activity: HomeActivity)
 
     fun inject(activity: NewsSourceActivity)
+
+    fun inject(activity: NewsListActivity)
 }

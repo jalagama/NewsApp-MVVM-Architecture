@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.jalagama.newsapp_mvvm_architecture.data.repository.NewsSourceRepository
 import com.jalagama.newsapp_mvvm_architecture.data.repository.TopHeadlineRepository
 import com.jalagama.newsapp_mvvm_architecture.di.ActivityContext
+import com.jalagama.newsapp_mvvm_architecture.ui.NewsList.NewsListViewModel
 import com.jalagama.newsapp_mvvm_architecture.ui.NewsSource.NewsSourceAdapter
 import com.jalagama.newsapp_mvvm_architecture.ui.NewsSource.NewsSourceViewModel
 import com.jalagama.newsapp_mvvm_architecture.ui.base.ViewModelProviderFactory
@@ -46,6 +47,15 @@ class ActivityModule(val activity: AppCompatActivity) {
             ViewModelProviderFactory(NewsSourceViewModel::class) {
                 NewsSourceViewModel(newsSourceRepository)
             })[NewsSourceViewModel::class.java]
+    }
+
+    @Provides
+    fun provideNewsListViewModel(topHeadlineRepository: TopHeadlineRepository): NewsListViewModel {
+        return ViewModelProvider(
+            activity,
+            ViewModelProviderFactory(NewsListViewModel::class) {
+                NewsListViewModel(topHeadlineRepository)
+            })[NewsListViewModel::class.java]
     }
 
 }

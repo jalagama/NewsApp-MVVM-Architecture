@@ -24,7 +24,7 @@ class TopHeadlineViewModel(private val topHeadlineRepository: TopHeadlineReposit
 
     fun fetchTopHeadlines() {
        viewModelScope.launch {
-           topHeadlineRepository.getTopHeadlines(COUNTRY)
+           topHeadlineRepository.getTopHeadlinesByCountry(COUNTRY)
                .catch { e -> _uiState.value = UiState.Error(e.message ?: "Unknown Error")}
                .collect { _uiState.value = UiState.Success(it) }
 
