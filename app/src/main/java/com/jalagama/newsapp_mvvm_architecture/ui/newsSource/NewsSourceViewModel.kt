@@ -1,4 +1,4 @@
-package com.jalagama.newsapp_mvvm_architecture.ui.NewsSource
+package com.jalagama.newsapp_mvvm_architecture.ui.newsSource
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

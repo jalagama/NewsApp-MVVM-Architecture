@@ -1,4 +1,4 @@
-package com.jalagama.newsapp_mvvm_architecture.ui.NewsList
+package com.jalagama.newsapp_mvvm_architecture.ui.newsList
 
 import android.content.Context
 import android.content.Intent
@@ -127,7 +127,7 @@ class NewsListActivity : AppCompatActivity() {
 
     companion object {
         fun newIntent(context: Context, state: String, type: String): Intent {
-            var intent = Intent(context, NewsListActivity::class.java)
+            val intent = Intent(context, NewsListActivity::class.java)
             intent.putExtra(NEWS_LIST_STATE_KEY, state)
             intent.putExtra(NEWS_LIST_TYPE_KEY, type)
             return intent

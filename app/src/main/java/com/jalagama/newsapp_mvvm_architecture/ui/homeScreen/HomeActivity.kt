@@ -1,4 +1,4 @@
-package com.jalagama.newsapp_mvvm_architecture.ui.HomeScreen
+package com.jalagama.newsapp_mvvm_architecture.ui.homeScreen
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
@@ -7,9 +7,9 @@ import com.jalagama.newsapp_mvvm_architecture.MyApplication
 import com.jalagama.newsapp_mvvm_architecture.databinding.ActivityHomeBinding
 import com.jalagama.newsapp_mvvm_architecture.di.component.DaggerActivityComponent
 import com.jalagama.newsapp_mvvm_architecture.di.module.ActivityModule
-import com.jalagama.newsapp_mvvm_architecture.ui.Countries.CountriesActivity
-import com.jalagama.newsapp_mvvm_architecture.ui.Languages.LanguageActivity
-import com.jalagama.newsapp_mvvm_architecture.ui.NewsSource.NewsSourceActivity
+import com.jalagama.newsapp_mvvm_architecture.ui.countries.CountriesActivity
+import com.jalagama.newsapp_mvvm_architecture.ui.languages.LanguageActivity
+import com.jalagama.newsapp_mvvm_architecture.ui.newsSource.NewsSourceActivity
 import com.jalagama.newsapp_mvvm_architecture.ui.topheadline.TopHeadlineActivity
 
 class HomeActivity : AppCompatActivity() {

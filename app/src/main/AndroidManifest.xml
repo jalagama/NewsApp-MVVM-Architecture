@@ -15,19 +15,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NewsAppMVVMArchitecture">
         <activity
-            android:name=".ui.Languages.LanguageActivity"
+            android:name=".ui.languages.LanguageActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.Countries.CountriesActivity"
+            android:name=".ui.countries.CountriesActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.NewsList.NewsListActivity"
+            android:name=".ui.newsList.NewsListActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.NewsSource.NewsSourceActivity"
+            android:name=".ui.newsSource.NewsSourceActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.HomeScreen.HomeActivity"
+            android:name=".ui.homeScreen.HomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

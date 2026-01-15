@@ -6,7 +6,7 @@
     android:background="#3C504E4E"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.Countries.CountriesActivity">
+    tools:context=".ui.countries.CountriesActivity">
 
     <TextView
         android:id="@+id/textView"

@@ -1,4 +1,4 @@
-package com.jalagama.newsapp_mvvm_architecture.ui.NewsSource
+package com.jalagama.newsapp_mvvm_architecture.ui.newsSource
 
 import android.content.Intent
 import android.os.Bundle

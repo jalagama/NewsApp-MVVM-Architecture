@@ -1,4 +1,4 @@
-package com.jalagama.newsapp_mvvm_architecture.ui.NewsList
+package com.jalagama.newsapp_mvvm_architecture.ui.newsList
 
 enum class NewsType {
     NEWS_SOURCE,

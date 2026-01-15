@@ -1,23 +1,14 @@
-package com.jalagama.newsapp_mvvm_architecture.ui.Languages
+package com.jalagama.newsapp_mvvm_architecture.ui.countries
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.jalagama.newsapp_mvvm_architecture.databinding.NewsSourceItemLayoutBinding
-import com.jalagama.newsapp_mvvm_architecture.ui.NewsList.NewsListActivity
-import com.jalagama.newsapp_mvvm_architecture.ui.NewsList.NewsType
+import com.jalagama.newsapp_mvvm_architecture.ui.newsList.NewsListActivity
+import com.jalagama.newsapp_mvvm_architecture.ui.newsList.NewsType
 
-class LanguagesAdapter(private val languages: List<Pair<String, String>>) :
-    RecyclerView.Adapter<LanguagesAdapter.DataViewHolder>() {
-
-
-    override fun onBindViewHolder(holder: DataViewHolder, position: Int) {
-        holder.bind(languages[position])
-    }
-
-    override fun getItemCount(): Int {
-        return languages.size
-    }
+class CountriesAdapter(private val countries: List<Pair<String, String>>) :
+    RecyclerView.Adapter<CountriesAdapter.DataViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = DataViewHolder(
         NewsSourceItemLayoutBinding.inflate(
@@ -27,26 +18,33 @@ class LanguagesAdapter(private val languages: List<Pair<String, String>>) :
         )
     )
 
+    override fun onBindViewHolder(
+        holder: DataViewHolder,
+        position: Int,
+    ) {
+        holder.bind(countries[position])
+    }
+
+    override fun getItemCount(): Int {
+        return countries.size
+    }
 
     class DataViewHolder(private val binding: NewsSourceItemLayoutBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(language: Pair<String, String>) {
-            binding.souceItem.text = language.second
+        fun bind(country: Pair<String, String>) {
+            binding.souceItem.text = country.second
             binding.souceItem.setOnClickListener {
                 val context = binding.root.context
-
                 context.startActivity(
                     NewsListActivity.newIntent(
                         context,
-                        language.first,
-                        NewsType.NEWS_LANGUAGE.name
+                        country.first,
+                        NewsType.NEWS_COUNTRIES.name
                     )
                 )
 
             }
-
         }
-
     }
 }

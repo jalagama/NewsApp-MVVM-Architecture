@@ -1,12 +1,12 @@
-package com.jalagama.newsapp_mvvm_architecture.ui.NewsSource
+package com.jalagama.newsapp_mvvm_architecture.ui.newsSource
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.jalagama.newsapp_mvvm_architecture.data.model.Sources
 import com.jalagama.newsapp_mvvm_architecture.databinding.NewsSourceItemLayoutBinding
-import com.jalagama.newsapp_mvvm_architecture.ui.NewsList.NewsListActivity
-import com.jalagama.newsapp_mvvm_architecture.ui.NewsList.NewsType
+import com.jalagama.newsapp_mvvm_architecture.ui.newsList.NewsListActivity
+import com.jalagama.newsapp_mvvm_architecture.ui.newsList.NewsType
 
 class NewsSourceAdapter(private val newsSourceList: ArrayList<Sources>) :
     RecyclerView.Adapter<NewsSourceAdapter.DataViewHolder>() {

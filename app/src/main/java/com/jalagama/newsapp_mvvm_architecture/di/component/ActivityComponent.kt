@@ -2,11 +2,11 @@ package com.jalagama.newsapp_mvvm_architecture.di.component
 
 import com.jalagama.newsapp_mvvm_architecture.di.ActivityScope
 import com.jalagama.newsapp_mvvm_architecture.di.module.ActivityModule
-import com.jalagama.newsapp_mvvm_architecture.ui.Countries.CountriesActivity
-import com.jalagama.newsapp_mvvm_architecture.ui.HomeScreen.HomeActivity
-import com.jalagama.newsapp_mvvm_architecture.ui.Languages.LanguageActivity
-import com.jalagama.newsapp_mvvm_architecture.ui.NewsList.NewsListActivity
-import com.jalagama.newsapp_mvvm_architecture.ui.NewsSource.NewsSourceActivity
+import com.jalagama.newsapp_mvvm_architecture.ui.countries.CountriesActivity
+import com.jalagama.newsapp_mvvm_architecture.ui.homeScreen.HomeActivity
+import com.jalagama.newsapp_mvvm_architecture.ui.languages.LanguageActivity
+import com.jalagama.newsapp_mvvm_architecture.ui.newsList.NewsListActivity
+import com.jalagama.newsapp_mvvm_architecture.ui.newsSource.NewsSourceActivity
 import com.jalagama.newsapp_mvvm_architecture.ui.topheadline.TopHeadlineActivity
 import dagger.Component
 
