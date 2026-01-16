@@ -10,6 +10,7 @@ import com.jalagama.newsapp_mvvm_architecture.di.module.ActivityModule
 import com.jalagama.newsapp_mvvm_architecture.ui.countries.CountriesActivity
 import com.jalagama.newsapp_mvvm_architecture.ui.languages.LanguageActivity
 import com.jalagama.newsapp_mvvm_architecture.ui.newsSource.NewsSourceActivity
+import com.jalagama.newsapp_mvvm_architecture.ui.search.SearchActivity
 import com.jalagama.newsapp_mvvm_architecture.ui.topheadline.TopHeadlineActivity
 
 class HomeActivity : AppCompatActivity() {
@@ -41,7 +42,7 @@ class HomeActivity : AppCompatActivity() {
         }
 
         homeBinding.searchButton.setOnClickListener {
-
+            startActivity(SearchActivity.newIntent(this))
         }
     }
 

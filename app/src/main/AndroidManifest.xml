@@ -15,6 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NewsAppMVVMArchitecture">
         <activity
+            android:name=".ui.search.SearchActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.languages.LanguageActivity"
             android:exported="false" />
         <activity

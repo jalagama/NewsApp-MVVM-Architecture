@@ -3,6 +3,7 @@ package com.jalagama.newsapp_mvvm_architecture.di.component
 import android.content.Context
 import com.jalagama.newsapp_mvvm_architecture.MyApplication
 import com.jalagama.newsapp_mvvm_architecture.data.api.NetworkService
+import com.jalagama.newsapp_mvvm_architecture.data.repository.NewsSearchRepository
 import com.jalagama.newsapp_mvvm_architecture.data.repository.NewsSourceRepository
 import com.jalagama.newsapp_mvvm_architecture.data.repository.TopHeadlineRepository
 import com.jalagama.newsapp_mvvm_architecture.di.ApplicationContext
@@ -26,5 +27,7 @@ interface ApplicationComponent {
     fun getTopHeadlineRepository(): TopHeadlineRepository
 
     fun getNewsSourceRepository(): NewsSourceRepository
+
+    fun getNewsSearchRepository(): NewsSearchRepository
 
 }

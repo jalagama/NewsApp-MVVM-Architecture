@@ -12,6 +12,7 @@ import com.jalagama.newsapp_mvvm_architecture.ui.newsList.NewsListViewModel
 import com.jalagama.newsapp_mvvm_architecture.ui.newsSource.NewsSourceAdapter
 import com.jalagama.newsapp_mvvm_architecture.ui.newsSource.NewsSourceViewModel
 import com.jalagama.newsapp_mvvm_architecture.ui.base.ViewModelProviderFactory
+import com.jalagama.newsapp_mvvm_architecture.ui.search.NewsSearchResultsAdapter
 import com.jalagama.newsapp_mvvm_architecture.ui.topheadline.TopHeadlineAdapter
 import com.jalagama.newsapp_mvvm_architecture.ui.topheadline.TopHeadlineViewModel
 import com.jalagama.newsapp_mvvm_architecture.utils.Countries
@@ -42,6 +43,9 @@ class ActivityModule(val activity: AppCompatActivity) {
 
     @Provides
     fun provideLanguagesAdapter() = LanguagesAdapter(Languages.languageList)
+
+    @Provides
+    fun provideNewsSearchResultsAdapter() = NewsSearchResultsAdapter(ArrayList())
 
     @Provides
     fun provideTopHeadlineViewModel(topHeadlineRepository: TopHeadlineRepository): TopHeadlineViewModel {
